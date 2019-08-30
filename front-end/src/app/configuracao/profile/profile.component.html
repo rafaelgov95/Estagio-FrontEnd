@@ -1,0 +1,158 @@
+<app-page-header [heading]="'Perfil'" [icon]="'fa-user'"></app-page-header>
+<div class="panel panel-default profile-area">
+    <div class="panel-heading">
+    </div>
+    <div class="panel-body">
+        <div>
+            <h1>Bem-vindo</h1>
+            <h3 class="nickname">
+                <small>{{ profile.nomeCompleto }}</small>
+            </h3>
+        </div>
+        <div>
+            <h1>CPF</h1>
+            <h3 class="nickname">
+                <small>{{ profile.cpf }}</small>
+            </h3>
+        </div>
+        <hr>
+        <ng-template #content let-c="close" let-d="dismiss">
+            <div class="modal-header">
+                <h4 class="modal-title">Trocar de Senha</h4>
+                <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <app-update-password ></app-update-password>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Fechar</button>
+
+            </div>
+        </ng-template>
+
+        <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Trocar Senha</button>
+
+        <hr>
+
+    </div>
+    
+        <div class="container">
+            <div class="col md-12">
+
+                <div class="row">
+                    <div class="col md-4">
+                        <div class="form-group">
+                            <label class="col-form-label" for="formGroupExampleInput2">NOME COMPLETO</label>
+                            <input type="text" [value]="profile.nomeCompleto" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col md-4">
+                        <div class="form-group">
+                            <label class="col-form-label" for="formGroupExampleInput">NOME SOCIAL</label>
+                            <input type="text" [value]="profile.nomeSocial" class="form-control" disabled>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col md-3">
+                        <div class="form-group">
+                            <label class="col-form-label" for="formGroupExampleInput2">LOGIN</label>
+                            <input type="text" [value]="profile.login" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col md-4">
+                        <div class="form-group">
+                            <label class="col-form-label" for="formGroupExampleInput">CPF</label>
+                            <input type="text" [value]="profile.cpf" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col md-3">
+                        <div class="form-group">
+                            <label class="col-form-label" for="formGroupExampleInput">RGA</label>
+                            <input type="text" [value]="profile.rga" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col md-3">
+                        <div class="form-group">
+                            <label class="col-form-label" for="formGroupExampleInput2">DATA CRIAÇÃO</label>
+                            <input type="text" [value]="profile.dataAlteracao" class="form-control" disabled>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+
+
+                    <div class="col-md-6 col-md-push-3">
+                        <div class="form-group">
+                            <label class="col-form-label" for="formGroupExampleInput">LOTAÇÃO</label>
+                            <input type="text" [value]="profile.lotacao" class="form-control" disabled>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col md-1">
+                        <div class="form-group">
+                            <label class="col-form-label" for="formGroupExampleInput2">TIPO</label>
+                            <input type="text" [value]="profile.tipo" class="form-control" disabled>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2 col-md-push-2">
+                        <div class="form-group">
+                            <label class="col-form-label" for="formGroupExampleInput2">REPRESENTANTE</label>
+                            <input type="text" [value]="profile.representante" class="form-control" disabled>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col md-3">
+
+                        <div class="form-group">
+                            <label class="col-form-label" for="formGroupExampleInput">EMAIL</label>
+                            <input type="text" [value]="profile.email" class="form-control" disabled>
+                        </div>
+                    </div>
+
+                    <div class="col md-3">
+                        <div class="form-group">
+                            <label class="col-form-label" for="formGroupExampleInput2">EMAIL ALTERNATIVO</label>
+                            <input type="text" [value]="profile.emailAlternativo" class="form-control" disabled>
+                        </div>
+
+                    </div>
+
+                    <div class="col md-1">
+                        <div class="form-group">
+                            <label class="col-form-label" for="formGroupExampleInput">EMAIL ALTERNATIVO PADRÃO</label>
+                            <input type="text" [value]="profile.emailAlternativoPadrao" class="form-control" disabled>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col md-3">
+                        <div class="form-group">
+                            <label class="col-form-label" for="formGroupExampleInput2">DATA DE ENTREGA DO TERMO</label>
+                            <input type="text" [value]="profile.dataEntregaTermo" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col md-3">
+                        <div class="form-group">
+                            <label class="col-form-label" for="formGroupExampleInput2">DATA DA ÚLTIMA VISITA</label>
+                            <input type="text" [value]="profile.dataAlteracao" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col md-1">
+                        <div class="form-group">
+                            <label class="col-form-label" for="formGroupExampleInput">ATIVO</label>
+                            <input type="text" [value]="profile.ativo" class="form-control" disabled>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+
+

@@ -1,0 +1,55 @@
+<app-page-header [heading]="'REQUERIMENTO DE ATENDIMENTO PELO TÉCNICO EM INFORMÁTICA'" [icon]="'fa-desktop'"></app-page-header>
+<banner-info></banner-info>
+<mat-card *ngIf="!sucesso">
+    <form [formGroup]="ratiForm" (submit)="Enviar()">
+        <div align='center'>
+            <mat-card-title>Requerimento TI</mat-card-title>
+        </div>
+        <hr>
+        <div class="example-container">
+            <mat-form-field>
+                <input formControlName="titulo" matInput placeholder="TÍTULO" required>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-select formControlName="prioridade" placeholder="PRIORIDADE" required>
+                    <mat-option value="PASSIVO">Passivo</mat-option>
+                    <mat-option value="IMEDIATO">Imediato</mat-option>
+                    <mat-option value="URGENTE">Urgente</mat-option>
+                </mat-select>
+                <mat-hint align="end">Click aqui para selecionar ^</mat-hint>
+            </mat-form-field>
+
+            <mat-form-field>
+                    <input type="tel" required matInput mask="(00) 0000-0000"  placeholder="TELEFONE" formControlName="numero">
+
+          
+            </mat-form-field>
+      <!-- <input type="tel" required matInput pattern="^(\([0-9]{2}\))\s([9]{1})?([0-9]{4})-([0-9]{4})$" [    ]="{mask: mask}"
+                    placeholder="TELEFONE" formControlName="numero"> -->
+
+        </div>
+        <ckeditor [editor]="Editor" (change)="onChange($event)"   [config]="{ width:1}"    ></ckeditor>
+
+        <!-- <ckeditor [config]="{extraPlugins: 'divarea'}" formControlName="mensagem"></ckeditor> -->
+
+        <div class="col-md-12">
+            <button type="submit" mat-button class="btn custom-card btn-lg btn-block"> Enviar</button>
+        </div>
+    </form>
+
+</mat-card>
+
+<mat-card *ngIf="sucesso">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-12 col-sm-offset-6">
+                <br>
+                <br>
+                <h2 style="color:#2ECC71">Obrigado {{profile.nomeCompleto}} !</h2>
+                <h4 style="color:#2ECC71">Sua mensagem foi enviada com sucesso, agora é só aguardar.</h4>
+                <img src="https://laoblogger.com/images/ok-clipart-2.jpg" height="60%" width="20%">
+            </div>
+
+        </div>
+    </div>
+</mat-card>

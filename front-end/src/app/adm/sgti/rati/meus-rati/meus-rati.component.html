@@ -1,0 +1,232 @@
+<app-page-header [heading]="'LISTA DE REQUERIMENTO DE ATENDIMENTO - RATI'" [icon]="'fa-desktop'">
+</app-page-header>
+<mat-tab-group>
+  <mat-tab label="Pendentes: {{dataSource[0].length}}">
+    <mat-card>
+ 
+      <div *ngIf="adm" class="example-container mat-elevation-z8">
+        <mat-table #table [dataSource]="dataSource[0]">
+          <div matColumnDef="id">
+            <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+          </div>
+
+          <ng-container matColumnDef="nome">
+            <mat-header-cell *matHeaderCellDef> Nome </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.nome}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="titulo">
+            <mat-header-cell *matHeaderCellDef> Título </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.titulo}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="situacao">
+            <mat-header-cell *matHeaderCellDef> Siatuação Atual </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.situacao}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="prioridade">
+            <mat-header-cell *matHeaderCellDef> Prioridade </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.prioridade}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="data_at">
+            <mat-header-cell *matHeaderCellDef> Data Criação </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.data_at}} </mat-cell>
+          </ng-container>
+
+         
+          <mat-header-row *matHeaderRowDef="displayedColumnsAdm "></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumnsAdm;" (click)="visualizar(row)" [ngClass]="{'custom-card-falta':row.situacao=='PENDENTE','custom-card-executando':row.situacao=='EXECUCAO','custom-card-pronto':row.situacao=='PRONTO'}"></mat-row>
+        </mat-table>
+      </div>
+
+      <div *ngIf="!adm" class="example-container mat-elevation-z8">
+        <mat-table #table [dataSource]="dataSource[0]">
+
+          <ng-container matColumnDef="id">
+            <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="titulo">
+            <mat-header-cell *matHeaderCellDef> Título </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.titulo}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="situacao">
+            <mat-header-cell *matHeaderCellDef> Siatuação Atual </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.situacao}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="prioridade">
+            <mat-header-cell *matHeaderCellDef> Prioridade </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.prioridade}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="data_at">
+            <mat-header-cell *matHeaderCellDef> Data Criação </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.data_at}} </mat-cell>
+          </ng-container>
+
+          
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="visualizar(row)" [ngClass]="{'custom-card-falta':row.situacao=='PENDENTE','custom-card-executando':row.situacao=='EXECUÇÂO','custom-card-pront':row.situacao=='PRONTO'}"></mat-row>
+        </mat-table>
+      </div>
+    </mat-card>
+  </mat-tab>
+
+  <mat-tab label="Execuções: {{dataSource[1].length}}">
+      <mat-card>
+   
+        <div *ngIf="adm" class="example-container mat-elevation-z8">
+          <mat-table #table [dataSource]="dataSource[1]">
+            <div matColumnDef="id">
+              <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+            </div>
+  
+            <ng-container matColumnDef="nome">
+              <mat-header-cell *matHeaderCellDef> Nome </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.nome}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="titulo">
+              <mat-header-cell *matHeaderCellDef> Título </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.titulo}} </mat-cell>
+            </ng-container>
+  
+            <ng-container matColumnDef="situacao">
+              <mat-header-cell *matHeaderCellDef> Siatuação Atual </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.situacao}} </mat-cell>
+            </ng-container>
+  
+            <ng-container matColumnDef="prioridade">
+              <mat-header-cell *matHeaderCellDef> Prioridade </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.prioridade}} </mat-cell>
+            </ng-container>
+  
+            <ng-container matColumnDef="data_at">
+              <mat-header-cell *matHeaderCellDef> Data Criação </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.data_at}} </mat-cell>
+            </ng-container>
+  
+ 
+            <mat-header-row *matHeaderRowDef="displayedColumnsAdm "></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumnsAdm;" (click)="visualizar(row)" [ngClass]="{'custom-card-falta':row.situacao=='PENDENTE','custom-card-executando':row.situacao=='EXECUCAO','custom-card-pronto':row.situacao=='PRONTO'}"></mat-row>
+          </mat-table>
+        </div>
+  
+        <div *ngIf="!adm" class="example-container mat-elevation-z8">
+          <mat-table #table [dataSource]="dataSource[1]">
+  
+            <ng-container matColumnDef="id">
+              <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+            </ng-container>
+  
+            <ng-container matColumnDef="titulo">
+              <mat-header-cell *matHeaderCellDef> Título </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.titulo}} </mat-cell>
+            </ng-container>
+  
+            <ng-container matColumnDef="situacao">
+              <mat-header-cell *matHeaderCellDef> Siatuação Atual </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.situacao}} </mat-cell>
+            </ng-container>
+  
+            <ng-container matColumnDef="prioridade">
+              <mat-header-cell *matHeaderCellDef> Prioridade </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.prioridade}} </mat-cell>
+            </ng-container>
+  
+            <ng-container matColumnDef="data_at">
+              <mat-header-cell *matHeaderCellDef> Data Criação </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.data_at}} </mat-cell>
+            </ng-container>
+  
+            
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="visualizar(row)" [ngClass]="{'custom-card-falta':row.situacao=='PENDENTE','custom-card-executando':row.situacao=='EXECUÇÂO','custom-card-pront':row.situacao=='PRONTO'}"></mat-row>
+          </mat-table>
+        </div>
+      </mat-card>
+    </mat-tab>
+    <mat-tab label="Prontos: {{dataSource[2].length}}">
+        <mat-card>
+     
+          <div *ngIf="adm" class="example-container mat-elevation-z8">
+            <mat-table #table [dataSource]="dataSource[2]">
+              <div matColumnDef="id">
+                <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+              </div>
+    
+              <ng-container matColumnDef="nome">
+                <mat-header-cell *matHeaderCellDef> Nome </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.nome}} </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="titulo">
+                <mat-header-cell *matHeaderCellDef> Título </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.titulo}} </mat-cell>
+              </ng-container>
+    
+              <ng-container matColumnDef="situacao">
+                <mat-header-cell *matHeaderCellDef> Siatuação Atual </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.situacao}} </mat-cell>
+              </ng-container>
+    
+              <ng-container matColumnDef="prioridade">
+                <mat-header-cell *matHeaderCellDef> Prioridade </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.prioridade}} </mat-cell>
+              </ng-container>
+    
+              <ng-container matColumnDef="data_at">
+                <mat-header-cell *matHeaderCellDef> Data Criação </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.data_at}} </mat-cell>
+              </ng-container>
+    
+    
+              <mat-header-row *matHeaderRowDef="displayedColumnsAdm "></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumnsAdm;" (click)="visualizar(row)" [ngClass]="{'custom-card-falta':row.situacao=='PENDENTE','custom-card-executando':row.situacao=='EXECUCAO','custom-card-pronto':row.situacao=='PRONTO'}"></mat-row>
+            </mat-table>
+          </div>
+    
+          <div *ngIf="!adm" class="example-container mat-elevation-z8">
+            <mat-table #table [dataSource]="dataSource[2]">
+    
+              <ng-container matColumnDef="id">
+                <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+              </ng-container>
+    
+              <ng-container matColumnDef="titulo">
+                <mat-header-cell *matHeaderCellDef> Título </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.titulo}} </mat-cell>
+              </ng-container>
+    
+              <ng-container matColumnDef="situacao">
+                <mat-header-cell *matHeaderCellDef> Siatuação Atual </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.situacao}} </mat-cell>
+              </ng-container>
+    
+              <ng-container matColumnDef="prioridade">
+                <mat-header-cell *matHeaderCellDef> Prioridade </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.prioridade}} </mat-cell>
+              </ng-container>
+    
+              <ng-container matColumnDef="data_at">
+                <mat-header-cell *matHeaderCellDef> Data Criação </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.data_at}} </mat-cell>
+              </ng-container>
+    
+             
+              <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="visualizar(row)" [ngClass]="{'custom-card-falta':row.situacao=='PENDENTE','custom-card-executando':row.situacao=='EXECUÇÂO','custom-card-pront':row.situacao=='PRONTO'}"></mat-row>
+            </mat-table>
+          </div>
+        </mat-card>
+      </mat-tab>
+    
+</mat-tab-group>
+

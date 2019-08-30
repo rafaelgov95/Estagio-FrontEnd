@@ -1,0 +1,81 @@
+<app-page-header [heading]="'Cronograma'" [icon]="'fa-calendar-check-o'"></app-page-header>
+
+
+<mat-card>
+    <mat-card-content>
+        <div class="row">
+            <div class="col-md-4">
+                <mat-card class="custom-card-falta">
+                    <mat-card class="custom-card-topo">
+                            <mat-card-title align='center'>PENDENTE: 2</mat-card-title>
+
+                    </mat-card>
+
+                </mat-card>
+                <div align='center'>
+                    <mat-card>
+                        <mat-card-content>
+                            <mat-selection-list #shoes>
+                                <mat-list-option *ngFor="let shoe of typesOfShoes">
+                                    {{shoe}}
+                                </mat-list-option>
+                            </mat-selection-list>
+
+                            <p>
+                                Options selected: {{shoes.selectedOptions.selected.length}}
+                            </p>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <mat-card class="custom-card-executando">
+                        <mat-card class="custom-card-topo">
+                                <mat-card-title align='center'>EXECUÇÂO: 4</mat-card-title>
+    
+                        </mat-card>
+                </mat-card>
+                <div align='center'>
+                    <mat-card>
+                        <mat-card-content>
+                            <mat-selection-list #shoes>
+                                <mat-list-option *ngFor="let shoe of typesOfShoes">
+                                    {{shoe}}
+                                </mat-list-option>
+                            </mat-selection-list>
+
+                            <p>
+                                Options selected: {{shoes.selectedOptions.selected.length}}
+                            </p>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <mat-card class="custom-card-pronto">
+                        <mat-card class="custom-card-topo">
+                                <mat-card-title align='center'>PRONTAS: 0</mat-card-title>
+    
+                        </mat-card>
+                </mat-card>
+                <div align='center'>
+                    <mat-card>
+                        <mat-card-content>
+                            <mat-selection-list #shoes>
+                                <mat-list-option *ngFor="let shoe of typesOfShoes">
+                                    {{shoe}}
+                                </mat-list-option>
+                            </mat-selection-list>
+
+                            <p>
+                                Options selected: {{shoes.selectedOptions.selected.length}}
+                            </p>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+            </div>
+
+        </div>
+        <br>
+    </mat-card-content>
+</mat-card>

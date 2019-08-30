@@ -1,0 +1,62 @@
+<mat-tab-group>
+  <mat-tab label="Informações Principais">
+    <mat-card>
+      <form [formGroup]="usuarioFormGroup">
+        <!-- <mat-card-title> Dados Pessoais </mat-card-title> -->
+        <mat-card>
+          <mat-card-content>
+            <div class="form-group col-md-12">
+              <div class="row">
+                <mat-form-field class="form-group col-md-8">
+                  <input matInput placeholder="NOME" [value]=profile.nomeCompleto formControlName="nome_completo" required>
+                </mat-form-field>
+                <mat-form-field class="form-group col-md-4">
+                  <input matInput placeholder="CPF" [value]=profile.cpf formControlName="cpf" required>
+                </mat-form-field>
+              </div>
+              <div class="row">
+                <mat-form-field class="form-group col-md-8">
+                  <input matInput placeholder="CURSO" [value]=profile.lotacao formControlName="curso" required>
+                </mat-form-field>
+                <mat-form-field class="form-group col-md-4">
+                  <input matInput placeholder="RGA" [value]=profile.rga formControlName="rga" required>
+                </mat-form-field>
+              </div>
+              <div class="row">
+                <mat-form-field class="form-group col-md-12">
+                  <input matInput placeholder="Email" [value]=profile.emailAlternativo formControlName="email_pessoal" required>
+                </mat-form-field>
+              </div>
+              <div class="row">
+                <mat-form-field class="form-group col-md-6">
+                  <input matInput placeholder="TIPO DO CURSO" [value]=profile.tipo formControlName="tipo_curso" required>
+                </mat-form-field>
+                <mat-form-field class="form-group col-md-4">
+            
+                    <input matInput [matDatepicker]="dataInicioCurso" placeholder="Data Entrada"  [value]=profile.dataCriacao>
+                    <mat-datepicker-toggle matSuffix [for]="dataInicioCurso"></mat-datepicker-toggle>
+                    <mat-datepicker #dataInicioCurso></mat-datepicker>
+                  </mat-form-field>
+          
+            
+              </div>
+
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </form>
+    </mat-card>
+  </mat-tab>
+  <mat-tab label="Contato">
+    <mat-card>
+      <form [formGroup]="usuarioFormGroup">
+        <mat-card-content>
+          <mat-card>
+            <app-telefones></app-telefones>
+          </mat-card>
+        </mat-card-content>
+
+      </form>
+    </mat-card>
+  </mat-tab>
+</mat-tab-group>

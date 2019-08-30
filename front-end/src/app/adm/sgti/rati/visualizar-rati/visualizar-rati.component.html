@@ -1,0 +1,51 @@
+<app-page-header [heading]="'ATENDIMENTO - RATI'" [icon]="'fa-desktop'">
+</app-page-header>
+<banner-info-rati [rati]='rati'></banner-info-rati>
+<mat-card>
+    <hr>
+    <div align='center'>
+        <mat-card-title>Título: {{rati.titulo}}</mat-card-title>
+    </div>
+    <hr>
+    <div align='center'>
+        <h5> Mensagem do Requerimento</h5>
+    </div>
+    <mat-card>
+        <div align='center'>
+        </div>
+        <div [innerHtml]="rati.mensagem | safeHtml"></div>
+    </mat-card>
+    <br>
+    <div *ngIf="rati.resposta!=undefined && rati.resposta!=''">
+        <div align='center'>
+            <h5> Resposta</h5>
+        </div>
+        <mat-card>
+            <div [innerHtml]="rati.resposta | safeHtml"></div>
+            <div *ngIf="rati.nome_ti!=''">
+                <hr>
+                <h6>
+                    Técnico {{rati.nome_ti}} em {{rati.resposta_data_at}}
+                </h6>
+            </div>
+        </mat-card>
+        <br>
+
+    </div>
+
+    <div *ngIf="adm" align="center" class="form-group" #let>
+        <!-- <ckeditor [config]="{extraPlugins: 'divarea'}" *ngIf="resposta" [(ngModel)]="rati.resposta" debounce="500"></ckeditor> -->
+        <br>
+        <button *ngIf="!resposta" type="button" class="btn btn-primary btn-lg" (click)="resposta=!resposta">Responder</button>
+        <mat-form-field *ngIf="resposta">
+            <mat-select placeholder="Status Atendimento" [(ngModel)]="rati.situacao">
+                <mat-option *ngFor="let s of status" [value]="s.value" #teste>
+                    {{ s.viewValue }}
+
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <button *ngIf="resposta" type="button" class="btn btn-primary btn-lg" (click)="addResposta()">Salvar</button>
+        <button *ngIf="resposta" type="button" class="btn btn-danger btn-lg" (click)="resposta=!resposta">Cancelar</button>
+    </div>
+</mat-card>

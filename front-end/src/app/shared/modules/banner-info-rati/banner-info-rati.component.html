@@ -1,0 +1,42 @@
+<mat-card>
+    <div>
+        <img [src]='logo' width="99%" height="40%">
+        <br>
+    </div>
+    <hr>
+    <div class="info">
+        <div class="row">
+            <div class="col-md-10">
+                <mat-card-subtitle>RATI: {{rati.id}} - {{rati.data_at | date:'dd/MM/yyyy'}}</mat-card-subtitle>
+            </div>
+            <div class="col-md-2">
+                <mat-card-subtitle>Número: {{ rati.numero }}</mat-card-subtitle>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10">
+                <mat-card-subtitle>Nome: {{ rati.nome}}</mat-card-subtitle>
+            </div>
+            <div class="col-md-2">
+                <mat-card-subtitle>Data: {{ rati.data_at | date:'dd/MM/yyyy HH:mm' }}</mat-card-subtitle>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10">
+                <mat-card-subtitle>Prioridade: {{ rati.prioridade }}</mat-card-subtitle>
+            </div>
+            <div class="col-md-2">
+                <mat-card-subtitle>Situção: {{ rati.situacao }}</mat-card-subtitle>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10">
+                <mat-card-subtitle>Email: {{ rati.email }}</mat-card-subtitle>
+            </div>
+            <div class="col-md-2">
+                <mat-card-subtitle>CPF: {{ rati.cpf }}</mat-card-subtitle>
+            </div>
+        </div>
+
+    </div>
+</mat-card>

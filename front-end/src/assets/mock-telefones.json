@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "uso": "Pessoal",
+        "contato": null,
+        "numero": "67998836289",
+        "ramal": null,
+        "operadora": "Vivo",
+        "isWhatsApp": true,
+        "prioridade": 0
+    },
+    {
+        "id": 2,
+        "uso": "Pessoal",
+        "contato": null,
+        "numero": "6732911828",
+        "ramal": null,
+        "operadora": "Oi",
+        "isWhatsApp": null,
+        "prioridade": 1
+    }
+]

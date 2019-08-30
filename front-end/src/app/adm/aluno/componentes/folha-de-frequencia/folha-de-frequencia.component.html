@@ -1,0 +1,69 @@
+<app-page-header [heading]="'Frequência'" [icon]="'fa-calendar'"></app-page-header>
+
+
+<mat-tab-group class="demo-tab-group">
+
+    <mat-tab label="Folha de Frêquencia">
+        <mat-card>
+            <mat-card-title align='center'>FOLHA DE FREQUÊNCIA PARA FINS DE CONSULTA</mat-card-title>
+            <mat-card-content>                
+            </mat-card-content>
+
+
+
+        </mat-card>
+        <div class="example-container mat-elevation-z8">
+            <mat-table #table [dataSource]="dataSource">
+
+                <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+
+                <!-- Position Column -->
+                <ng-container matColumnDef="n">
+                    <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.n}} </mat-cell>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="dia">
+                    <mat-header-cell *matHeaderCellDef> Dia </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.dia}} </mat-cell>
+                </ng-container>
+
+                <!-- Weight Column -->
+                <ng-container matColumnDef="entrada">
+                    <mat-header-cell *matHeaderCellDef> Entrada </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.entrada}} </mat-cell>
+                </ng-container>
+
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="saida">
+                    <mat-header-cell *matHeaderCellDef> Saida </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.saida}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="assinatura">
+                    <mat-header-cell *matHeaderCellDef> Assinatura </mat-header-cell>
+                    <mat-cell *matCellDef="let element" [ngClass]="element.assinatura =='ft'? 'alert alert-danger' : 'alert alert-success' ">{{element.assinatura =='ft'? 'AUSENTE' : 'PRESENTE' }}</mat-cell>
+                </ng-container>
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+        </div>
+    </mat-tab>
+    <mat-tab label="Historico de Estágios">
+        <div class="card text-center">
+            <div class="card-header">
+                <span class="badge badge-pill badge-danger">Sem Estágio Cadastrado !!</span>
+
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Bem Vindo ao EV (Estágio Virtual)</h5>
+                <p class="card-text">Começe agora mesmo, cadastre-se em um estágio rápido e fácil.</p>
+                <a href="#" class="btn btn-primary">Começar</a>
+            </div>
+            <div class="card-footer text-muted">
+                UFMS - CPCXP Developers
+            </div>
+        </div>
+    </mat-tab>
+</mat-tab-group>

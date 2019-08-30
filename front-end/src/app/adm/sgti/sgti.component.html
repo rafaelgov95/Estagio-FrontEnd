@@ -1,0 +1,79 @@
+<app-page-header [heading]="'SISTEMA PARA GESTÃO DE TÉCNICO EM INFORMÁTICA'" [icon]="'fa-desktop'">
+</app-page-header>
+<mat-card>
+
+  <mat-card>
+    <mat-card-title align="center"> Tutorial - Requerimento de Atendimento pelo TI - RATI</mat-card-title>
+    <hr>
+
+    <br>
+    <p class="recuo">Um dos módulos desta plataforma é o módulo de Requerimento de Atendimento pelo TI com a sigla RATI. Um RATI é uma forma
+      de comunicação entre um servidor ou aluno com o técnico de informática do Câmpus, assim os recursos de TI são melhores
+      utilizados, ofertando uma melhor eficiência e serviços de qualidade, para os servidores e alunos da instituição. Este
+      Tutorial visa demonstrar como funciona o módulo RATI, que atualmente é composto por duas funcionalidades sendo elas
+      Novo RATI e Meus RATI.</p>
+    <div align="center">
+      <br>
+      <img [src]='rati01' width="30%" height="30%" alt="Botões laterais">
+    </div>
+    <hr>
+    <mat-card-title>Novo RATI</mat-card-title>
+    <p class="recuo">Para criar um RATI, basta clicar no botão do lado esquerdo da página "SGTI", no submenu deve-se escolher a opção Novo
+      RATI, esta página possui um campo de "TÍTULO", um campo de "PRIORIDADE", um campo "TELEFONE" para informa um telefone de contato e um campo para adicionar a "MENSAGEM", a mensagem
+      deve conter informações que facilite o diagnóstico do problema pelo técnico.</p>
+    <br>
+    <div align="center">
+      <div>
+        <h4>PRIORIDADES</h4>
+  
+        <p style="color: rgb(182, 21, 21);">ATENÇÃO ÀS PRIORIDADE DEVEM SER SEGUIDAS PARA UM MELHOR FUNCIONAMENTO.</p>
+      </div>
+      <mat-card-subtitle>PASSIVA</mat-card-subtitle>
+      A prioridade passiva significa que a mesma não possui importância institucional ou que implique na função dos servidores.
+      <br>
+      <br>
+      <mat-card-subtitle>IMEDIATA</mat-card-subtitle>
+      A prioridade imediata significa que a mesma está implicando no andamento das funções dos servidores ou da institucional.
+      <br>
+      <br>
+      <mat-card-subtitle>URGENTE</mat-card-subtitle>
+      A prioridade urgente significa que a mesma está implicando no andamento das funções institucionais, acarretando o não funcionamento
+      da instituição.
+      <br>
+      <br>
+      <img [src]='rati02' width="40%" height="40%">
+    </div>
+
+    <br>
+    <br>
+    <hr>
+    <mat-card-title>Meus RATI</mat-card-title>
+    <br>
+    <p class="recuo"> Após ter criado um RATI, já se pode ver o mesmo na lista de RATI PENDENTES, assim que seu RATI for colocado em execução
+      ele passará a pertencer a lista de RATI em execução, quando o técnico finalizar seu RATI o mesmo pertencerá a lista
+      de Prontos.
+    </p>
+
+    <div align="center">
+      <br>
+      <img [src]='rati03' width="40%" height="40%">
+    </div>
+    <br>
+    <br>
+    <hr>
+    <mat-card-title>Visualizar RATI</mat-card-title>
+    <br>
+    <p class="recuo">Para visualizar um RATI é simples basta entrar em Meus RATI, e clicar na linha que representa seu RATI, ao clicar uma
+      nova tela será aberta contendo as informações do RATI. Assim que seu RATI for respondido aparecerá embaixo da sua mensagem,
+      a resposta do técnico com a data de resposta e nome do mesmo.</p>
+
+    <div align="center">
+      <br>
+      <img [src]='rati04' width="40%" height="40%">
+    </div>
+  </mat-card>
+
+
+
+
+</mat-card>

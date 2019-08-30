@@ -1,0 +1,84 @@
+<nav class="sidebar" [ngClass]="{sidebarPushRight: isActive}">
+    <ul class="list-group">
+   
+   
+        <a [routerLink]="['/home']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-home"></i>&nbsp;Início
+        </a>
+
+
+        <div class="nested-menu">
+            <a class="list-group-item" (click)="addExpandClass('pages1')" [routerLink]="['/sgti']" [routerLinkActive]="['router-link-active']">
+                <i class="fa fa-wrench"></i>&nbsp;SGTI
+            </a>
+            <li class="nested" [class.expand]="showMenu === 'pages1'">
+                <ul class="submenu">
+                    <li>
+                        <a [routerLink]="['/sgti/rati/novo-rati']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                            <i class="fa fa-plus-circle"></i>&nbsp;Novo RATI
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nested" [class.expand]="showMenu === 'pages1'">
+                <ul class="submenu">
+                    <li>
+                        <a [routerLink]="['/sgti/rati/meus-rati']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                            <i class="fa fa-address-card"></i>&nbsp;Meus RATI
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </div>
+
+
+
+        <div class="nested-menu">
+            <a class="list-group-item" (click)="addExpandClass('pages2')" [routerLinkActive]="['router-link-active']">
+
+                <i class="fa fa-fw fa-desktop"></i>&nbsp;Estágio
+            </a>
+            <!-- <li class="nested" [class.expand]="showMenu === 'pages2'">
+                <ul class="submenu">
+                    <li>
+                        <a [routerLink]="['/estagio/nova-proposta']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                            <i class="fa fa-plus-circle"></i>&nbsp;Nova Proposta
+                        </a>
+                    </li>
+
+                </ul>
+            </li>
+            <li class="nested" [class.expand]="showMenu === 'pages2'">
+                <ul class="submenu">
+                    <li>
+                        <a [routerLink]="['/estagio/em-andamento']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                            <i class="fa fa-address-card"></i>&nbsp;Em Andamento
+                        </a>
+                    </li>
+
+                </ul>
+            </li>
+            <li class="nested" [class.expand]="showMenu === 'pages2'">
+                <ul class="submenu">
+                    <li>
+                        <a [routerLink]="['/estagio/concluidas']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                            <i class="fa fa-check"></i>&nbsp;Concluídos
+                        </a>
+                    </li>
+
+                </ul>
+            </li> -->
+        </div>
+
+        <!-- <a [routerLink]="['/estagio/folha-de-frequencia']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-calendar"></i>&nbsp;Frequência
+        </a>
+        <a [routerLink]="['/estagio/cronograma']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-industry"></i>&nbsp;Cronograma
+        </a>
+        <a [routerLink]="['/estagio/relatorios']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-tasks"></i>&nbsp;Relatorios
+        </a> -->
+
+    </ul>
+</nav>

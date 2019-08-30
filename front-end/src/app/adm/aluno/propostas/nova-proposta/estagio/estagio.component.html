@@ -1,0 +1,53 @@
+<mat-tab-group>
+  <mat-tab label="Informações Principais">
+    <mat-card>
+      <form [formGroup]="estagioFormGroup">
+
+        <mat-card>
+          <mat-card-content>
+            <div class="form-group col-md-12">
+              <div class="row">
+                <mat-form-field class="form-group col-md-8">
+                  <input matInput placeholder="Supervisor Nome" formControlName="supervisor_nome" required>
+                </mat-form-field>
+                <mat-form-field class="form-group col-md-4">
+                  <input matInput placeholder="Supervisor Cargo" formControlName="supervisor_cargo" required>
+                </mat-form-field>
+              </div>
+              <div class="row">
+                <mat-form-field class="form-group col-md-8">
+                  <input matInput placeholder="Supervisor Email" formControlName="supervisor_email" required>
+                </mat-form-field>
+                <mat-form-field class="form-group col-md-4">
+                  <input matInput placeholder="ModalidadeOrientacao" formControlName="modalidade" required>
+                </mat-form-field>
+              </div>
+              <div class="row">
+                <mat-form-field class="form-group col-md-4">
+                  <input matInput [matDatepicker]="dataInicioEstagio" placeholder="Data Inicío Estágio">
+                  <mat-datepicker-toggle matSuffix [for]="dataInicioEstagio"></mat-datepicker-toggle>
+                  <mat-datepicker #dataInicioEstagio  ></mat-datepicker>
+                </mat-form-field>
+                <mat-form-field class="form-group col-md-4">
+                    <input matInput [matDatepicker]="dataTerminoEstagio" placeholder="Data Termino Estágio">
+                    <mat-datepicker-toggle matSuffix [for]="dataTerminoEstagio"></mat-datepicker-toggle>
+                    <mat-datepicker #dataTerminoEstagio  ></mat-datepicker>
+                  </mat-form-field>
+                <mat-form-field class="form-group col-md-4">
+                  <input matInput placeholder="Valor da Bolsa" formControlName="valor_bolsa" required>
+                </mat-form-field>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </form>
+    </mat-card>
+  </mat-tab>
+  <mat-tab label="Contato">
+    <mat-card>
+      <mat-card>
+        <app-telefones></app-telefones>
+      </mat-card>
+    </mat-card>
+  </mat-tab>
+</mat-tab-group>

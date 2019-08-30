@@ -1,0 +1,65 @@
+<mat-card *ngIf="!flag">
+  <div class="card text-center">
+    <div class="card-header">
+      <span class="badge badge-pill badge-danger">Sem Estágio Cadastrado !!</span>
+    </div>
+    <div class="card-body">
+      <div class="wrapper">
+        <div class="row">
+          <mat-form-field class="form-group col-md-7">
+            <mat-select placeholder="Propostas Anteriores" required [formControl]="propostasControl" [(ngModel)]="opcao">
+              <mat-option>--</mat-option>
+              <mat-option *ngFor="let proposta of propostas" [value]="proposta" #Optionvalue>
+                {{proposta}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <div class=" col-md-5 btn-alg">
+            <button class="btn btn-info" (click)=getPropostas()>Encaminhar proosta</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer text-muted">
+      UFMS - CPCXP Developers
+    </div>
+  </div>
+</mat-card>
+
+<form (ngSubmit)="submit()">
+  <mat-horizontal-stepper *ngIf="flag">
+    <mat-step>
+      <ng-template matStepLabel>Dados do Aluno</ng-template>
+      <form-estudante (usuarioFormGroupOutput)='usuarioForm($event)' [usuarioFormGroup]=usuarioFormGroup></form-estudante>
+      <div class="row">
+        <div class="col-md-10">
+          <div class="col-md-5" mat-button matStepperPrevious>Back</div>
+          <div class="col-md-5" mat-button (click)="stepper.reset()">Reset</div>
+        </div>
+      </div>
+
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Local de Estágio</ng-template>
+      <form-local-de-estagio (localEstagioFormGroupOutput)='localEstagioForm($event)' [localEstagioFormGroup]=localEstagioFormGroup></form-local-de-estagio>
+      <div>
+        <button class="btn-voltar" mat-button matStepperPrevious type="button">Back</button>
+        <button class="btn-proximo" mat-button matStepperNext type="button">Next</button>
+      </div>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Dados do Estágio</ng-template>
+      <form-estagio (estagioFormGroupOutput)='estagioForm($event)' [estagioFormGroup]=estagioFormGroup></form-estagio>
+      <!-- <div class="btn-voltar">
+        <button mat-button matStepperPrevious type="button">Back</button>
+      </div>
+      <div class="btn-proximo">
+        <buttonmat-button matStepperNext type="submit">Enviar</button>
+      </div> -->
+    </mat-step>
+
+
+
+
+  </mat-horizontal-stepper>
+</form>

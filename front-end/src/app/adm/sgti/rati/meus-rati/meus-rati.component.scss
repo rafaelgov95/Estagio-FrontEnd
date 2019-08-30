@@ -1,0 +1,55 @@
+/*!
+ * Start Bootstrap - Clean Blog v4.0.0-alpha (http://startbootstrap.com/template-overviews/clean-blog)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-clean-blog/blob/master/LICENSE)
+ */
+ 
+ 
+  .custom-card-executando {
+    background-color: rgb(253, 222, 157);
+  }
+  .custom-card-pronto {
+    background-color: rgb(144, 202, 242);;
+  }
+  .custom-card-falta {
+    background-color:  rgb(245, 175, 184);
+  }
+  
+  .custom-card-topo {
+    background-color:  rgb(238, 238, 238);
+  }
+
+.mat-fab{
+    background-color: #429ddb;
+}
+.wrapper{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+  max-height: 500px;
+  min-width: 300px;
+}
+
+.mat-table {
+  overflow: auto;
+  max-height: 500px;
+}
+.mat-cell:nth-child(1),
+.mat-header-cell:nth-child(1),
+{
+flex: 0 0 2%;
+}
+.mat-cell:nth-child(2),
+.mat-header-cell:nth-child(2),
+{
+flex: 0 0 20%;
+}
+.mat-cell:nth-child(3),
+.mat-header-cell:nth-child(3),
+{
+flex: 0 0 30%;
+}

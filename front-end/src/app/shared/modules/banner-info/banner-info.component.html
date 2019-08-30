@@ -1,0 +1,35 @@
+<mat-card>
+    <div>
+        <img [src]='logo' width="99%" height="40%">
+        <br>
+    </div>
+    <hr>
+    <div class="info">
+        <div class="row">
+            <div class="col-md-9">
+                <mat-card-subtitle>Nome: {{ profile.nomeCompleto}}</mat-card-subtitle>
+            </div>
+            <div class="col-md-3">
+                <mat-card-subtitle>Ingresso UFMS: {{ profile.dataCriacao }}</mat-card-subtitle>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-9">
+                <mat-card-subtitle>Lotação: {{ profile.lotacao }}</mat-card-subtitle>
+            </div>
+            <div class="col-md-3">
+                <mat-card-subtitle>Tipo: {{ profile.tipo }}</mat-card-subtitle>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-9">
+                <mat-card-subtitle>Email: {{ profile.email }}</mat-card-subtitle>
+            </div>
+            <div class="col-md-3">
+                <mat-card-subtitle>CPF: {{ profile.cpf }}</mat-card-subtitle>
+            </div>
+        </div>
+     
+    </div>
+    <hr>
+</mat-card>
