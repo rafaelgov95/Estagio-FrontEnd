@@ -1,4 +1,4 @@
-import { Rati } from './../../../modelos/rati-modelo';
+import { Rati } from './../../modelos/rati-modelo';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { from, Observable } from 'rxjs';
