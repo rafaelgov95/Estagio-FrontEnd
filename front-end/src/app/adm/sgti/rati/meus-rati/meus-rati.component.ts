@@ -21,6 +21,7 @@ export class MeusRatiComponent implements OnInit {
   constructor(private ratiService: RatiService, private router: Router) {
 
     if (JSON.parse(localStorage.getItem("currentUserRole"))['cpf'] == "04634501163") {
+      
       this.adm = true
     }
     // this.ratiService.getAutentica().subscribe(data => {
@@ -36,7 +37,6 @@ export class MeusRatiComponent implements OnInit {
         for (var i = 0; i < 3; i++) {
           this.dataSource[i] = data.filter(e => e.situacao == this.dataSourceHead[i])
         }
-
       }, erro => {
 
       });

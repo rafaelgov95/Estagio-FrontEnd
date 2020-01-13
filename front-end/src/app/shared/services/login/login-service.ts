@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpResponse} from '@angular/common/http';
 import { range, from, Observable, throwError } from 'rxjs';
-import { map, filter, scan } from 'rxjs/operators';
+import { map, filter, scan,tap } from 'rxjs/operators';
 
 
 import { HttpHeaders, HttpErrorResponse } from '@angular/common/http';
@@ -22,7 +22,7 @@ export class LoginService {
     }
 
 
-    logarAPI(dn): Observable<any> {
+    logarAPI(dn) {
 
         const httpOptions = {
             headers: new HttpHeaders({
@@ -31,13 +31,14 @@ export class LoginService {
         }
 
         let bodyString = JSON.stringify({ "token": JSON.parse(localStorage.getItem("currentUser"))['authToken'], "dn": dn })
-        return this.http.post("http://localhost:8080/login", bodyString, httpOptions).pipe(
-            map((response: Response) => {
-
+  
+        return this.http.post("http://localhost:8080/login", bodyString,httpOptions).pipe(
+            map((response: Headers) => {
                 let body = response;
                 if (body) {
-                    localStorage.setItem('currentUser', JSON.stringify(body));
+                    // localStorage.setItem('currentUser', JSON.stringify(body));
                 }
+                console.log("AQUI",body)
             }));
     }
 
@@ -51,11 +52,16 @@ export class LoginService {
             })
         }
         let bodyString = JSON.stringify({ "passaporte": passaporte, "senha": senha })
-        return this.http.post('https://sistemas5.ufms.br/seguranca/rest/authentication', bodyString, httpOptions)
-            .pipe(
-                map((response: Response) => {
+        
 
-                    console.log("ESSECARA", response);
+
+        // return this.http.post('https://api.ufms.br/passaporte-ws/authentication', bodyString, httpOptions)
+        //     .pipe(data);
+      
+        return this.http.post('https://api.ufms.br/passaporte-ws/authentication', bodyString, httpOptions)
+            .pipe(
+                map((response: any) => {
+                    // console.log("ESSECARA", response);
                     let body = response;
                     if (body) {
                         localStorage.setItem('currentUser', JSON.stringify(body));
@@ -63,28 +69,7 @@ export class LoginService {
                 }));
     }
 
-
-
-    getAtributos(): Observable<any> {
-        var dados = JSON.parse(localStorage.getItem("currentUser"));
-        var token = dados['authToken']
-        const httpOptions = {
-            headers: new HttpHeaders({
-                'Content-Type': 'application/json',
-                'X-AUTH-TOKEN': token
-            })
-        }
-
-        return this.http.get('https://sistemas5.ufms.br/passaporte-ws/api/authorization', httpOptions)
-            .pipe(map((response: Response) => {
-                return response;
-
-            }));
-    }
-
-    getPerfil(response): Observable<any> {
-        var dn = response['dn']
-
+    getPerfil(): Observable<any> {
         const httpOptions = {
             headers: new HttpHeaders({
                 'Content-Type': 'application/json',
@@ -92,29 +77,29 @@ export class LoginService {
             })
         }
 
-        return this.http.get('https://sistemas5.ufms.br/passaporte-ws/api/ad/' + dn, httpOptions)
+        return this.http.get('https://api.ufms.br/passaporte-ws/ad/'+ JSON.parse(localStorage.getItem("currentUser"))['dn'] , httpOptions)
             .pipe(map((response: Response) => {
                 localStorage.setItem('currentUserRole', JSON.stringify(response));
-                return dn
+                return  JSON.parse(localStorage.getItem("currentUser"))['dn'];
             }));
 
     }
 
-    updatePassword(senhaAtual, senhaNova): Observable<any> {
-        var login = JSON.parse(localStorage.getItem("currentUser"))['usuario']['passaporte']
-        const httpOptions = {
-            headers: new HttpHeaders({
-                'Content-Type': 'application/json',
-                'X-AUTH-TOKEN': JSON.parse(localStorage.getItem("currentUser"))['authToken']
-            })
-        }
+    // updatePassword(senhaAtual, senhaNova): Observable<any> {
+    //     var login = JSON.parse(localStorage.getItem("currentUser"))['usuario']['passaporte']
+    //     const httpOptions = {
+    //         headers: new HttpHeaders({
+    //             'Content-Type': 'application/json',
+    //             'X-AUTH-TOKEN': JSON.parse(localStorage.getItem("currentUser"))['authToken']
+    //         })
+    //     }
 
-        let bodyString = JSON.stringify({ "login": login, "senhaAtual": senhaAtual, "senhaNova": senhaNova })
-        return this.http.post('https://sistemas5.ufms.br/passaporte-ws/api/alterarSenha', bodyString, httpOptions)
-            .pipe(map((response: Response) => {
-                return response;
-            }));
-    }
+    //     let bodyString = JSON.stringify({ "login": login, "senhaAtual": senhaAtual, "senhaNova": senhaNova })
+    //     return this.http.post('https://sistemas5.ufms.br/passaporte-ws/api/alterarSenha', bodyString, httpOptions)
+    //         .pipe(map((response: Response) => {
+    //             return response;
+    //         }));
+    // }
 
 
     logout() {

@@ -119,27 +119,19 @@ export class LoginComponent implements OnInit {
     this.loginService.logar(this.UserForm.get('passaporte').value, this.UserForm.get('senha').value)
       .subscribe(
         data => {
-          this.loginService.getAtributos()
-            .subscribe(
-              data => {
-                this.loginService.getPerfil(data).subscribe(
-                  data => {
-                    this.loginService.logarAPI(data).subscribe(
-                      data => { 
-                          console.log("ENTRO E BUGO")
-                        this.router.navigate(['/home']);
-                      }, error => {
-                        this.Lodingspinner()
-                      })
-                  },
-                  erro => {
-                    this.Lodingspinner()
-                  })
+          this.loginService.getPerfil().subscribe(
+            data => {
+              this.loginService.logarAPI(data).subscribe(
+                data => {
+                  this.router.navigate(['/home']);
+                }, error => {
+                  this.Lodingspinner()
+                })
+            },
+            erro => {
+              this.Lodingspinner()
+            })
 
-              },
-              error => {
-                this.Lodingspinner()
-              });
         },
         error => {
           this.alert = false;
@@ -147,7 +139,6 @@ export class LoginComponent implements OnInit {
           this.loginService.logout();
           this.Lodingspinner()
         });
-
   }
 }
 

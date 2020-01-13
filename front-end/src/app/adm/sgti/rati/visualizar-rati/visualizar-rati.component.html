@@ -16,6 +16,8 @@
         <div [innerHtml]="rati.mensagem | safeHtml"></div>
     </mat-card>
     <br>
+
+
     <div *ngIf="rati.resposta!=undefined && rati.resposta!=''">
         <div align='center'>
             <h5> Resposta</h5>
@@ -34,7 +36,9 @@
     </div>
 
     <div *ngIf="adm" align="center" class="form-group" #let>
-        <!-- <ckeditor [config]="{extraPlugins: 'divarea'}" *ngIf="resposta" [(ngModel)]="rati.resposta" debounce="500"></ckeditor> -->
+        <!--  <ckeditor [config]="{extraPlugins: 'divarea'}" *ngIf="resposta" [(ngModel)]="rati.resposta" debounce="500"></ckeditor> -->
+        <ckeditor [editor]="Editor" (change)="onChange($event)"   [config]="{ width:1}"    ></ckeditor>
+
         <br>
         <button *ngIf="!resposta" type="button" class="btn btn-primary btn-lg" (click)="resposta=!resposta">Responder</button>
         <mat-form-field *ngIf="resposta">

@@ -4,6 +4,9 @@ import { RatiService } from './../../../../shared/services/sgti/rati/rati-servic
 import { FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { UserRole } from 'src/app/shared/modelos/user-role-modelo';
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { ChangeEvent } from '@ckeditor/ckeditor5-angular/ckeditor.component';
+
 @Component({
   selector: 'app-visualizar-rati',
   templateUrl: './visualizar-rati.component.html',
@@ -44,4 +47,13 @@ export class VisualizarRatiComponent implements OnInit {
     this.ratiService.AddResposta(this.rati).subscribe(data => { this.rati = data }, err => { })
     this.resposta = !this.resposta
   }
+
+  public Editor = ClassicEditor;
+
+  public onChange({ editor }: ChangeEvent) {
+    const data = editor.getData();
+    this.rati.resposta = (data);
+    console.log(data);
+  }
+
 }
